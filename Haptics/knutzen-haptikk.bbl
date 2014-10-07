@@ -1,0 +1,63 @@
+\begin{thebibliography}{}
+
+\bibitem[Askenfelt and Jansson, 1992]{askenfelt_vibration_1992}
+Askenfelt, A. and Jansson, E.~V. (1992).
+\newblock On vibration sensation and finger touch in stringed instrument
+  playing.
+\newblock {\em Music Perception: An Interdisciplinary Journal}, 9(3):311--349.
+
+\bibitem[Chafe, 1993]{chafe_tactile_1993}
+Chafe, C. (1993).
+\newblock Tactile audio feedback.
+\newblock In {\em Proceedings of the International Computer Music Conference},
+  pages 76--79, Japan.
+
+\bibitem[Chafe and {O’Modhrain}, 1996]{chafe_musical_1996}
+Chafe, C. and {O’Modhrain}, S. (1996).
+\newblock Musical muscle memory and the haptic display of performance nuance.
+\newblock In {\em Proceedings of the International Computer Music Conference},
+  Hong Kong, China.
+
+\bibitem[Knutzen, 2013]{knutzen2013}
+Knutzen, H. (2013).
+\newblock Haptics in the air - exploring vibrotactile feedback for digital
+  musical instruments with open air controllers.
+\newblock Master's thesis, University of Oslo.
+
+\bibitem[Knutzen et~al., 2014]{knutzen_vibrotactile_2014}
+Knutzen, H., Kvifte, T., and Wanderley, M.~M. (2014).
+\newblock Vibrotactile feedback for an open air music controller.
+\newblock In {\em Post Proceedings of the 10th International Symposium on
+  Computer Music Multidisciplinary Research (to appear)}.
+
+\bibitem[Kvifte, 2007]{kvifte_instruments_2007}
+Kvifte, T. (2007).
+\newblock {\em Instruments and the Electronic Age}.
+\newblock Taragot Sounds, Oslo, Norway.
+
+\bibitem[Oakley et~al., 2000]{oakley_putting_2000}
+Oakley, I., {McGee}, M.~R., Brewster, S., and Gray, P. (2000).
+\newblock Putting the feel in ``look and feel''.
+\newblock In {\em Proceedings of the {SIGCHI} conference on Human Factors in
+  Computing Systems}, pages 415--422, New York, {NY}. {ACM}.
+
+\bibitem[Rovan and Hayward, 2000]{rovan_typology_2000}
+Rovan, J. and Hayward, V. (2000).
+\newblock Typology of tactile sounds and their synthesis in gesture-driven
+  computer music performance.
+\newblock In Wanderley, M.~M. and Battier, M., editors, {\em Trends in Gestural
+  Control of Music}, pages 355--368. {IRCAM}, Centre Pompidou, Paris.
+
+\bibitem[Schumacher et~al., 2013]{schumacher_vibrotactile_2013}
+Schumacher, M., Giordano, M., Wanderley, M.~M., and Ferguson, S. (2013).
+\newblock Vibrotactile notification for live electronics performance: A
+  prototype system.
+\newblock In {\em Proceedings of the 10th International Symposium on Computer
+  Music Multidisciplinary Research}, pages 516--525, Marseille, France.
+
+\bibitem[Verrillo, 1992]{verrillo_vibration_1992}
+Verrillo, R.~T. (1992).
+\newblock Vibration sensation in humans.
+\newblock {\em Music Perception}, page 281–302.
+
+\end{thebibliography}
