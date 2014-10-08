@@ -1,0 +1,306 @@
+\documentclass{beamer}
+\usetheme{Boadilla}
+\usepackage{natbib}
+\usepackage{caption}
+\usepackage{url}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{multirow}
+\hypersetup{colorlinks=false, citebordercolor={1 1 1}}
+\usepackage{listings}
+\captionsetup[figure]{labelformat=empty}
+%\captionsetup{table}{labelformat=empty}
+
+
+
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\tikzstyle{block} = [rectangle, draw, fill=white, text width=5em, text centered, rounded corners, minimum height=2em]
+\tikzstyle{line} = [draw, -latex']
+
+\title[Vib.tact. Aug. of an Open-air Controller]{Vibrotactile Augmentation of an Open-air Music Controller}
+%\subtitle{Modeling and Computations}
+\author[H. Knutzen, T. Kvifte and M. M. Wanderley]{H\aa kon Knutzen, Tellef Kvifte and Marcelo M. Wanderley}
+\institute[UIO/McGill]{
+	\includegraphics[scale=.3]{figs/UiO_A_SAMARBEID_ENG_cmyk.eps}%
+	\includegraphics[scale=.075]{figs/fourMs-logo.pdf}
+	\vspace{10pt}
+	\includegraphics[scale = .3]{figs/McGill_logo.pdf}%
+	\includegraphics[scale = .35]{figs/schulich_logo.pdf}
+	\includegraphics[scale = .1]{figs/cirmmt_logo.pdf}\hspace{2pt}
+	\includegraphics[scale=.1]{figs/IDMIL_logo_Malloch.pdf}
+
+}
+\date{October 15, 2013}
+
+\begin{document}
+
+%----------Title---------
+\begin{frame}[plain]
+  \titlepage
+\end{frame}
+
+%------what was done?-------
+
+\begin{frame}
+\frametitle{Overview}
+
+\begin{itemize}[<+->]
+	\item No inherent vibrotactile feedback in digital musical instruments (DMIs) as in acoustic instruments.\footnote{\citep{rovan_2000}} % say that vibtact is important.
+%	\item How an open air controller can be augmented with vibrotactile feedback. 	
+%	\item How feedback on manipulation of musical parameters can be conveyed through vibrotactile feedback.
+	\item Vicon MoCap system as \emph{open air} music controller. Hand motion$\rightarrow$sound.%address the issue by defining to DMI prototypes and augement them with vibrotactile feedback.
+%	\item Two DMI prototypes were created.
+	\item Embedding actuators in the controller.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\begin{itemize}[<+->]
+		\item Can vibrotactile feedback convey musical information on the way the instrument is being played?	
+		\item Is this preferable?
+	\end{itemize}
+\end{frame}
+
+%-------Implementation----------
+%\begin{frame}
+%	\frametitle{DMI setup}
+%\begin{figure}
+%	\centering
+%		\begin{tikzpicture}[auto]
+%			\tikzstyle{every node}=[font=\footnotesize]
+%			\node [block] (OSC) {PC: QVicon2OSC};
+%%    		\node [block] (init) {Vicon};
+%%   		 \node [block, right of=init,node distance = 2.3cm] (OSC) {PC: QVicon2OSC};
+%   		 \node [block, right of=OSC, node distance = 3.2cm,text width=7em] (SC) {MacBook Pro: libmapper \& SuperCollider};
+%			\node [block, right of = SC, node distance = 4.5cm] (Mixer) {Audio Mixer};
+%			\node [block, below of=Mixer, node distance = 2.3cm] (Glove) {Vibrotactile glove};
+%			\node [block, left of= Glove, node distance = 2.3cm] (Headset) {Headset};	
+%% 		   \path [line] (init) -- (OSC);
+% 		   \path [line] (OSC) --node[midway]{OSC}  (SC);
+%  		  \path [line] (SC) -- node[midway]{Stereo Audio}(Mixer);
+%  		  \path [line] (Mixer) --node[midway]{Right Channel} (Glove);
+%  		  \path [line] (Mixer) -- node[left]{Left Channel} (Headset);
+%		\end{tikzpicture}
+%	\caption{Diagram of implementation}
+%\end{figure}
+%\end{frame}
+
+%-------Vibrotactile glove-------
+
+
+
+\begin{frame}
+\frametitle{Vibrotactile glove}
+	\begin{figure}
+		\centering
+		\includegraphics[width = .6\textwidth]{figs/ccloseups.png}	
+		\caption{Vibrotactile glove closeup}
+	\end{figure}
+\end{frame}
+
+%prototype 1----------------------
+\begin{frame}%explain supercollider, splitting signal one to actuator and one to headset
+	\frametitle{Prototype 1: Audio Mapping}
+	\begin{figure}
+	\includegraphics[width = .9\textwidth]{figs/prototype1_circle.png}
+	\caption{Mapping of prototype 1}
+	\end{figure}
+\end{frame}
+
+
+% video 1
+
+\begin{frame}
+\frametitle{Prototype 1: Vibrotactile feedback}
+	\begin{itemize}[<+->]
+	% all signals varied with the amplitude of the audio
+	\item Sine. % only amplitude
+	\item Burst. % burst that was short when audio dull, and burst long when audio bright
+	\item AM. % carrier freq f/2, modulation freq varied with timbre, low high-dull bright
+	\item Filtered audio. % filtered tactile compensation, low pass
+	\end{itemize}
+\end{frame}
+
+
+%\begin{frame}
+%\frametitle{Prototype 1: Vibrotactile Strategies}
+%	\begin{table}
+%	\centering
+%	\begin{footnotesize}
+%	\begin{tabular}{ l l l l }
+%	\hline
+%	Vib.tact. strategy & Feedback & Mapping \\ 
+%	\hline
+%	\hline
+%	\multirow{2}{*}{Strategy 1} 
+%	& spetral: no & \\
+%	& pitch: yes & frequency = $f_{0}/2$ \\
+%	\hline
+%	\multirow{2}{*}{Strategy 2} 
+%	& spetral: yes & z-pos$\rightarrow$burst length \\
+%	& pitch: yes & resonant frequency = $f_{0}$  \\
+%	\hline
+%	\multirow{2}{*}{Strategy 3} 
+%	& spetral: yes & z-pos (low-high)$\rightarrow$modulation freq (7-20 Hz) \\
+%	& pitch: yes & carrier frequency = $f_{0}/2$ \\
+%	\hline
+%	\multirow{2}{*}{Strategy 4}
+%	& spetral: yes & z-pos$\rightarrow$spectral parameter \\
+%	& pitch: yes & $f_{0}$\\
+%	\hline
+%	\end{tabular}
+%	\end{footnotesize}
+%	\end{table}
+%\end{frame}
+
+\begin{frame}
+	\frametitle{Prototype 2: Audio Mapping}
+	\begin{figure}
+	\includegraphics[width = .9\textwidth]{figs/prototype2_circle.png}
+	\caption{Mapping of prototype 2}	
+	\end{figure}
+\end{frame}
+% explain 
+
+
+%video 2
+
+\begin{frame}
+\frametitle{Prototype 2: Vibrotactile feedback}
+	\begin{itemize}[<+->]
+	\item Onsets.% extracted onsets from the drumloop signal. Triggered impulsive sigs, carfreq corresp to filter freq (15-500), modfreq (1-30)
+	\item Filtered audio.
+	\end{itemize}
+\end{frame}
+
+
+
+%\begin{frame}
+%\frametitle{Prototype 2: Vibrotactile strategies}
+%\begin{table}
+%	\center
+%	\caption{Vibrotactile strategies of Prototype 2}
+%	\begin{tabular}{l l}
+%\hline
+%\multirow{3}{*}{Vibrotactile strategy 1} 
+%& \\
+%& filtered audio \\
+%&  \\ 
+%\hline
+%\multirow{3}{*}{Vibrotactile strategy 2} 
+%& x-pos$\rightarrow$carrier frequency\\
+%& onsets of audio signal$\rightarrow$trigger envelope \\
+%& z-pos$\rightarrow$modulation frequency \\ 
+%\hline
+%	\end{tabular}
+%
+%\end{table}
+%\end{frame}
+
+%------plots------------
+
+%\begin{frame}[allowframebreaks]
+%	\frametitle{Plots}
+%	\begin{figure}
+%		\centering
+%		\includegraphics[width=.9\textwidth]{figs/prototype1.pdf}
+%		\caption{Prototype 1: Plot of vibrotactile signal (top), audio signal (middle) and marker positions (below)}
+%	\end{figure}
+%
+%	\begin{figure}
+%		\centering
+%		\includegraphics[width=.9\textwidth]{figs/prototype2.pdf}
+%		\caption{Prototype 2: Plot of vibrotactile signal (top), audio signal (middle) and marker positions (below)}
+%	\end{figure}
+%\end{frame}
+
+%\begin{frame}[allowframebreaks]
+%\frametitle{Results}
+%\begin{table}
+%	\centering
+%	\caption{Results of the evaluation of Prototype 1.}
+%	\begin{tabular}{l | c c }
+%	\hline
+%	Strategy & Amplitude & Timbre \\
+%	\hline
+%	1 Sine & 3/5 & 1/5 \\
+%	2 Burst & 2/5 & 1/5 \\
+%	3 AM & 5/5 & 4/5 \\
+%	4 Filtered Audio & 4/5 & 4/5 \\
+%	\hline
+%	\hline
+%	Question & Yes & No \\
+%	\hline
+%	Note selection feedback useful? & 4 & 1 \\
+%	Vibrotactile feedback preferred? & 5 & 0\\
+%	Glove design obtrusive? & 1 & 4 \\
+%	\hline
+%	\end{tabular}
+%\end{table}
+%
+%\begin{table}
+%	\centering
+%	\caption{Results of the evaluation of Prototype 2.}
+%	\begin{tabular}{l | c c }
+%	\hline
+%	Strategy & Filter frequency & Playback rate \\
+%	\hline
+%	Filtered audio & 1/5 & 4/5 \\
+%	Onsets-triggered Amplitude modulation & 4/5 & 5/5 \\
+%	\hline
+%	\hline
+%	Question & Yes & No \\
+%	\hline
+%	Vibrotactile feedback preferred? & 5 & 0\\
+%	Glove design obtrusive? & 1 & 4 \\
+%	\hline
+%	\end{tabular}
+%\end{table}
+%\end{frame}
+
+\begin{frame}
+\frametitle{Summary}
+	\begin{itemize}[<+->]% an approach to creating feedback by embedding actuators, 
+	\item Vibrotactile feedback is preferred compared to no feedback.
+	\item Vibrotactile feedback can covey information on the way the musical parameters are manipulated. % mention which parameters. not surprisingly the most efficient signals are the once that share similarities with the audio signal
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Future work}
+
+\begin{itemize}[<+->]
+	\item Wireless implementation.
+	\item Tweak the vibrotactile synthesis and mapping.% amplitude range was clipped for instance, make it more pronou
+	\item Conduct a formal study with more participants.% investigate more thorougly:successful feedback. preferable. longitudinal use ( one problem is that the DMI is new (novice players). two separate groups one with one without. improvisatio. one problem is that the DMI is new (novice players). test with respect to HCI (accuracy, precision)
+\end{itemize}
+
+\end{frame}
+
+%-----acknowledgments
+
+\begin{frame}
+\frametitle{Acknowledgments}
+
+Thanks to Marcello Giordano, Clayton Mamedes, Mark Zadel, Joseph Malloch, Stephen Sinclair, Aaron Krajeski, Darryl Cameron and Avrum Hollinger at McGill University. Also, thanks to the IDMIL students that participated in the evaluation.
+
+
+\end{frame}
+
+
+%--------refs------
+
+\begin{frame}[allowframebreaks]
+\frametitle{References}
+		\begin{footnotesize}
+		
+        \bibliographystyle{apalike}
+        \bibliography{bibs/paperbib}
+		\end{footnotesize}
+\end{frame}
+
+
+
+\end{document}
